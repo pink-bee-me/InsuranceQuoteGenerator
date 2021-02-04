@@ -1,0 +1,48 @@
+﻿
+/******** Insuree/Create  ***********/
+/*!!!!!!! CityStreetsCellPhone: ENTER INSUREE FORM !!!!!!!*/
+/******* A.K.A Create Form With Button Get Quote / Button Back to Lis******/
+/* InsureeControlle / Create.cshtml */
+body::after {
+    padding: 0;
+    width: 100vh;
+    height: 100vw;
+}
+
+#InsureeCreatePageBodyContainer {
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    font-family: "Josefin Sans", sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+#InsureeCreateBackground img {
+    position: relative;
+    top: 0;
+    left: 0vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+
+#Color_Overlay {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    background-size: cover;
+    background: rgba(255,255,255,.35);
+    width: 100vw;
+    height: 150vh;
+}
+
+.jumbotron {
+    position: relative;
+    bottom: 100vh;
+    right: 3vw;
+    background: none;
+    font-size: 1.5em;
+    color: white;
+}

@@ -1,0 +1,135 @@
+﻿@model IEnumerable<InsuranceQuoteGenerator.Models.AutoQuote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InsureeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeUnder18)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeBtw19and25)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age26andUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AutoYearBefore2000)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AutoYearAfter2015)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPorsche)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCarrera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotalBeforeDuiCalc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DuiRateUp25Percent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotalAfterDuiCalc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpeedingTickets)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotalBeforeCoverageCalc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullCoverageRateUp50Percent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotalAfterCoverageCalc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyQuoteRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearlyQuoteRate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsureeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeUnder18)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeBtw19and25)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age26andUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutoYearBefore2000)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutoYearAfter2015)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPorsche)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCarrera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTotalBeforeDuiCalc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DuiRateUp25Percent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTotalAfterDuiCalc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpeedingTickets)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTotalBeforeCoverageCalc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullCoverageRateUp50Percent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTotalAfterCoverageCalc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyQuoteRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearlyQuoteRate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AutoQuoteId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AutoQuoteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AutoQuoteId })
+        </td>
+    </tr>
+}
+
+</table>

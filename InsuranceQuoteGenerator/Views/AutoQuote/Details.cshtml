@@ -1,0 +1,162 @@
+﻿@model InsuranceQuoteGenerator.Models.AutoQuote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AutoQuote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InsureeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsureeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeUnder18)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeUnder18)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeBtw19and25)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeBtw19and25)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age26andUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age26andUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AutoYearBefore2000)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AutoYearBefore2000)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AutoYearAfter2015)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AutoYearAfter2015)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPorsche)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPorsche)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCarrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCarrera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTotalBeforeDuiCalc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTotalBeforeDuiCalc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DuiRateUp25Percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DuiRateUp25Percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTotalAfterDuiCalc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTotalAfterDuiCalc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeedingTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpeedingTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTotalBeforeCoverageCalc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTotalBeforeCoverageCalc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullCoverageRateUp50Percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullCoverageRateUp50Percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTotalAfterCoverageCalc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTotalAfterCoverageCalc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyQuoteRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyQuoteRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearlyQuoteRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearlyQuoteRate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AutoQuoteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
