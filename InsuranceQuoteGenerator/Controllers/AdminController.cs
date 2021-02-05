@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace InsuranceQuoteGenerator.Controllers
 {
@@ -16,7 +12,7 @@ namespace InsuranceQuoteGenerator.Controllers
 
         public ActionResult EmailList()
         {
-            return View()
+            return View();
         }
     }
 }

@@ -8,8 +8,9 @@
   @Scripts.Render("~/bundles/modernizr")
   <script src="~/Scripts/jquery-3.1.1.min.js"></script>
   <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-  <link rel="icon" href="~/Content/FavIcon/favicon.ico" />
-</head>
+  <link runat="server" rel="icon" href="~/Views/Shared/FavIcon/PinkBeeMePolyPhonic.ico" type="image/ico" />@*for chrome and firefox*@
+  <link runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> @*for internet explorer*@
+  </head>
 <body>
     
         @RenderBody()

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Post Not Successful.</title>
+  <link rel="stylesheet" href="~/Content/PostNotSuccessfulStyles.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div> 
+      <h1>Sincere apologies,
+        as we were unable to complete your request...</h1><br/> <br/>
+       <h2> We appreciate your patience as we work to correct this issue.<br/>
+        Please follow the Link Below And Re-Submit Your Form.<br/>
+        Thank You.
+      </h2>
+      </div>
+  <div id="RedoForm" class="btn btn-group-lg btn-secondary">
+       @Html.ActionLink("This way please...","NewInsureeFormData", "Insuree", null, new { @class = "btn btn-secondary" })
+</div>
+
+</body>
+</html>

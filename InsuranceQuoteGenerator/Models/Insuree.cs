@@ -9,10 +9,7 @@
 
 namespace InsuranceQuoteGenerator.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Insuree
+    public partial class Insuree : NewInsureeFormData
     {
         public int InsureeId { get; set; }
         public string FirstName { get; set; }
@@ -28,5 +25,10 @@ namespace InsuranceQuoteGenerator.Models
         public int AutoQuoteId { get; set; }
         public decimal MonthlyQuoteRate { get; set; }
         public decimal YearlyQuoteRate { get; set; }
+        public NewInsureeFormData NewInsureeFormData { get; set; }
+
+        public Insuree(NewInsureeFormData newInsureeFormData)
+        {
+        }
     }
 }

@@ -39,18 +39,29 @@ namespace InsuranceQuoteGenerator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InsureeId,FirstName,LastName,EmailAddress,DateOfBirth,CarYear,CarMake,CarModel,DUI,SpeedingTickets,CoverageType,AutoQuoteId,MonthlyQuoteRate,YearlyQuoteRate")] Insuree insuree)
+        public ActionResult Create([Bind(Include = "InsureeId,FirstName,LastName,EmailAddress,DateOfBirth,CarYear,CarMake,CarModel,DUI,SpeedingTickets,CoverageType,AutoQuoteId,MonthlyQuoteRate,YearlyQuoteRate")] NewInsureeFormData newInsureeFormData)
         {
             if (ModelState.IsValid)
             {
+                Insuree insuree = new Insuree(newInsureeFormData);
+
                 db.Insurees.Add(insuree);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PostSuccess");
             }
+            return RedirectToAction("PostNotSuccess");
 
-            return View(insuree);
         }
 
+        public ActionResult PostNotSuccess()
+        {
+            return View();
+        }
+
+        public ActionResult PostSuccess()
+        {
+            return View();
+        }
 
         // GET: Insuree/Details/5
         public ActionResult Details(int? id)
