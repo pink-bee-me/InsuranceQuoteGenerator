@@ -8,14 +8,22 @@ namespace InsuranceQuoteGenerator.Controllers
 {
     public class AutoQuoteController : Controller
     {
-        private readonly InsuranceQuotesEntities db = new InsuranceQuotesEntities();
+        private readonly InsuranceEntities db = new InsuranceEntities();
 
-        public InsuranceQuotesEntities Db => db;
+        public InsuranceEntities Db => db;
 
         // GET: AutoQuote
         public ActionResult Index()
         {
             return View(db.AutoQuotes.ToList());
+        }
+
+        public ActionResult CalculateAutoQuote(Insuree insuree)
+        {
+
+            return View();
+
+
         }
 
         // GET: AutoQuote/Details/5

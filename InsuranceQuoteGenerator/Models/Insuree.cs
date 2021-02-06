@@ -9,25 +9,62 @@
 
 namespace InsuranceQuoteGenerator.Models
 {
-    public partial class Insuree : NewInsureeFormData
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Insuree
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Insuree()
+        {
+            this.AutoQuotes = new HashSet<AutoQuote>();
+        }
+
         public int InsureeId { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [EmailAddress]
         public string EmailAddress { get; set; }
+        [Required]
         public System.DateTime DateOfBirth { get; set; }
-        public int CarYear { get; set; }
-        public string CarMake { get; set; }
-        public string CarModel { get; set; }
+        [Range(1950, 2021)]
+        public int VehicleYear { get; set; }
+        [Required]
+        public string VehicleMake { get; set; }
+        [Required]
+        public string VehicleModel { get; set; }
         public bool DUI { get; set; }
+        [Required]
         public int SpeedingTickets { get; set; }
         public bool CoverageType { get; set; }
-        public int AutoQuoteId { get; set; }
-        public decimal MonthlyQuoteRate { get; set; }
-        public decimal YearlyQuoteRate { get; set; }
-        public NewInsureeFormData NewInsureeFormData { get; set; }
+        public AutoQuote AutoQuote { get; set; }
+        public AutoQuote AutoQuoteId { get; set; }
+        public Nullable<decimal> MonthlyQuoteRate { get; set; }
+        public Nullable<decimal> YearlyQuoteRate { get; set; }
+        public ICollection<Insuree> Insurees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AutoQuote> AutoQuotes { get; set; }
 
-        public Insuree(NewInsureeFormData newInsureeFormData)
+        public Insuree(int InsureeId)
+        {
+        }
+
+        public Insuree(int insureeId, string firstName, string lastName,
+                      string emailAddress, DateTime dateOfBirth, int vehicleYear,
+                      string vehicleMake, string vehicleModel, bool dui,
+                      int speedingTickets, bool coverageType)
+
+        {
+        }
+
+        public Insuree(AutoQuote autoQuoteId, AutoQuote monthlyQuoteRate, AutoQuote yearlyQuoteRate)
+        {
+        }
+
+        public Insuree(AutoQuote AutoQuote)
         {
         }
     }

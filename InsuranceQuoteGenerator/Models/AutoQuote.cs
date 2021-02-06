@@ -9,10 +9,13 @@
 
 namespace InsuranceQuoteGenerator.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class AutoQuote
     {
         public int AutoQuoteId { get; set; }
-        public Insuree InsureeId { get; set; }
+        public int InsureeId { get; set; }
         public decimal BaseRate { get; set; }
         public decimal AgeUnder18 { get; set; }
         public decimal AgeBtw19and25 { get; set; }
@@ -24,27 +27,13 @@ namespace InsuranceQuoteGenerator.Models
         public decimal SubTotalBeforeDuiCalc { get; set; }
         public decimal DuiRateUp25Percent { get; set; }
         public decimal SubTotalAfterDuiCalc { get; set; }
-        public decimal SpeedingTickets { get; set; }
+        public decimal SpeedingTicketsRate { get; set; }
         public decimal SubTotalBeforeCoverageCalc { get; set; }
         public decimal FullCoverageRateUp50Percent { get; set; }
         public decimal SubTotalAfterCoverageCalc { get; set; }
         public decimal MonthlyQuoteRate { get; set; }
         public decimal YearlyQuoteRate { get; set; }
-
-
-        public AutoQuote()
-        {
-
-        }
-
-        public AutoQuote(Insuree insuree)
-        {
-
-        }
-
-        public AutoQuote(NewInsureeFormData newInsureeFormData)
-        {
-
-        }
+    
+        public virtual Insuree Insuree { get; set; }
     }
 }

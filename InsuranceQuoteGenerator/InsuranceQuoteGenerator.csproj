@@ -136,31 +136,31 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AutoQuote.cs">
-      <DependentUpon>InsuranceAutoQuoteEntities.tt</DependentUpon>
+      <DependentUpon>InsuranceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InsuranceAutoQuoteEntities.Context.cs">
+    <Compile Include="Models\InsuranceEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InsuranceAutoQuoteEntities.Context.tt</DependentUpon>
+      <DependentUpon>InsuranceEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InsuranceAutoQuoteEntities.cs">
+    <Compile Include="Models\InsuranceEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InsuranceAutoQuoteEntities.tt</DependentUpon>
+      <DependentUpon>InsuranceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InsuranceQuoteEntities.Designer.cs">
+    <Compile Include="Models\InsuranceEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InsuranceQuoteEntities.edmx</DependentUpon>
+      <DependentUpon>InsuranceEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Insuree.cs">
-      <DependentUpon>InsuranceAutoQuoteEntities.tt</DependentUpon>
+      <DependentUpon>InsuranceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NewInsureeFormData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AdminEmailListVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Insurance.mdf" />
     <Content Include="App_Data\InsuranceQuotes.mdf" />
     <Content Include="App_Data\InsuranceQuotes_log.ldf">
       <DependentUpon>InsuranceQuotes.mdf</DependentUpon>
@@ -174,6 +174,16 @@
     <Content Include="Content\Images\AdventureYellowLineRoad.jpg" />
     <Content Include="Content\Images\DestinationThere.jpg" />
     <Content Include="Content\PostNotSuccessfulStyles.css" />
+    <Content Include="Models\InsuranceEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InsuranceEntities.edmx</DependentUpon>
+      <LastGenOutput>InsuranceEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\InsuranceEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InsuranceEntities.edmx</DependentUpon>
+      <LastGenOutput>InsuranceEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="Views\Shared\FavIcon\PinkBeeMePolyPhonic.ico" />
     <Content Include="Content\Images\FrontPage.jpg" />
     <Content Include="Content\Images\LandingPageAuto.jpg" />
@@ -197,24 +207,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\InsuranceAutoQuoteEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>InsuranceQuoteEntities.edmx</DependentUpon>
-      <LastGenOutput>InsuranceAutoQuoteEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\InsuranceAutoQuoteEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>InsuranceQuoteEntities.edmx</DependentUpon>
-      <LastGenOutput>InsuranceAutoQuoteEntities.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\InsuranceQuoteEntities.edmx">
+    <EntityDeploy Include="Models\InsuranceEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>InsuranceQuoteEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>InsuranceEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\InsuranceQuoteEntities.edmx.diagram">
-      <DependentUpon>InsuranceQuoteEntities.edmx</DependentUpon>
+    <Content Include="Models\InsuranceEntities.edmx.diagram">
+      <DependentUpon>InsuranceEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -256,8 +256,8 @@
     <Content Include="Views\AutoQuote\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Insuree\NewInsureeFormData.cshtml" />
-    <Content Include="Views\Shared\PostSuccess.cshtml" />
-    <Content Include="Views\Insuree\PostNotSuccess.cshtml" />
+    <Content Include="Views\Insuree\PostYesSuccess.cshtml" />
+    <Content Include="Views\Insuree\PostNoSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Admin\" />

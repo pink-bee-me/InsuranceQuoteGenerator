@@ -55,23 +55,17 @@
     </div>
   }*@
 
-@model InsuranceQuoteGenerator.Models.NewInsureeFormData
 @using System.Web.Mvc.Html;
+@model InsuranceQuoteGenerator.Models.Insuree
+
 
 <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.1.1.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 
 
-
 @using (Html.BeginForm("Create", "Insuree", FormMethod.Post))
 {
-
-
-
-  @Html.AntiForgeryToken()
-
-
   <div id="InsureeCreatePageBodyContainer">
 
     <div id="InsureeCreateBackground">
@@ -80,18 +74,11 @@
 
         <div class="jumbotron">
 
-
+          @Html.AntiForgeryToken()
+          @Html.ValidationSummary(true, "", new { @class = "text-danger" })
           <div class="form-horizontal">
             <h4>Insuree</h4>
             <hr />
-
-
-
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-
-
             <div class="form-group">
               @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
               <div class="col-md-10">
@@ -125,26 +112,26 @@
             </div>
 
             <div class="form-group">
-              @Html.LabelFor(model => model.CarYear, htmlAttributes: new { @class = "control-label col-md-2" })
+              @Html.LabelFor(model => model.VehicleYear, htmlAttributes: new { @class = "control-label col-md-2" })
               <div class="col-md-10">
-                @Html.EditorFor(model => model.CarYear, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarYear, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.VehicleYear, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VehicleYear, "", new { @class = "text-danger" })
               </div>
             </div>
 
             <div class="form-group">
-              @Html.LabelFor(model => model.CarMake, htmlAttributes: new { @class = "control-label col-md-2" })
+              @Html.LabelFor(model => model.VehicleMake, htmlAttributes: new { @class = "control-label col-md-2" })
               <div class="col-md-10">
-                @Html.EditorFor(model => model.CarMake, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarMake, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.VehicleMake, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VehicleMake, "", new { @class = "text-danger" })
               </div>
             </div>
 
             <div class="form-group">
-              @Html.LabelFor(model => model.CarModel, htmlAttributes: new { @class = "control-label col-md-2" })
+              @Html.LabelFor(model => model.VehicleModel, htmlAttributes: new { @class = "control-label col-md-2" })
               <div class="col-md-10">
-                @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.VehicleModel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VehicleModel, "", new { @class = "text-danger" })
               </div>
             </div>
 
@@ -182,11 +169,11 @@
               </div>
 
             </div>
-
-            <div>
+            <div class="form-group">
+            <div class ="btn btn-link color:white; background-color:coral;">
               @Html.ActionLink("Back to List", "Index")
             </div>
-
+            </div>
           </div>
         </div>
       </div>

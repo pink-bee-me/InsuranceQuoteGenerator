@@ -13,10 +13,10 @@ namespace InsuranceQuoteGenerator.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InsuranceQuotesEntities : DbContext
+    public partial class InsuranceEntities : DbContext
     {
-        public InsuranceQuotesEntities()
-            : base("name=InsuranceQuotesEntities")
+        public InsuranceEntities()
+            : base("name=InsuranceEntities")
         {
         }
     

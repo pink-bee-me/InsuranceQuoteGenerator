@@ -19,3 +19,12 @@ h2 {
     font-weight:300;
     font-style:italic;
 }
+
+#RedoForm{
+    width:20vw;
+    height:10vh;
+    background-color:orchid;
+    color:white;
+    padding:5px;
+    text-align:center;
+}

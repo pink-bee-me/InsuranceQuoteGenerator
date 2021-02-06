@@ -1,0 +1,40 @@
+﻿@using InsuranceQuoteGenerator.Models;
+@model InsuranceQuoteGenerator.Models.Insuree
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Successful Submission</title>
+</head>
+<body>
+  
+  @using {var model = new Insuree()
+
+    <div>
+      <h2>Submission Successful :</h2><br/><br/>
+
+      <ul>Insuree:
+      
+      <li>Name:@insuree.FirstName </li>
+      
+      
+      
+      
+      
+      </ul>
+      
+
+
+      </div>
+  <div>
+    @Html.ActionLink("Calculate Quote", "Index","AutoQuote",null, new { @class = "btn btn-success", Insuree.Id })
+    </div>
+  }
+</body>
+</html>

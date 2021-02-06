@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InsuranceQuotesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="InsuranceEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AutoQuotes">
           <Key>
             <PropertyRef Name="AutoQuoteId" />
@@ -22,7 +22,7 @@
           <Property Name="SubTotalBeforeDuiCalc" Type="money" Nullable="false" />
           <Property Name="DuiRateUp25Percent" Type="money" Nullable="false" />
           <Property Name="SubTotalAfterDuiCalc" Type="money" Nullable="false" />
-          <Property Name="SpeedingTickets" Type="money" Nullable="false" />
+          <Property Name="SpeedingTicketsRate" Type="money" Nullable="false" />
           <Property Name="SubTotalBeforeCoverageCalc" Type="money" Nullable="false" />
           <Property Name="FullCoverageRateUp50Percent" Type="money" Nullable="false" />
           <Property Name="SubTotalAfterCoverageCalc" Type="money" Nullable="false" />
@@ -38,25 +38,40 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
-          <Property Name="CarYear" Type="int" Nullable="false" />
-          <Property Name="CarMake" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CarModel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleYear" Type="int" Nullable="false" />
+          <Property Name="VehicleMake" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleModel" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DUI" Type="bit" Nullable="false" />
           <Property Name="SpeedingTickets" Type="int" Nullable="false" />
           <Property Name="CoverageType" Type="bit" Nullable="false" />
-          <Property Name="AutoQuoteId" Type="int" Nullable="false" />
-          <Property Name="MonthlyQuoteRate" Type="money" Nullable="false" />
-          <Property Name="YearlyQuoteRate" Type="money" Nullable="false" />
+          <Property Name="MonthlyQuoteRate" Type="money" />
+          <Property Name="YearlyQuoteRate" Type="money" />
         </EntityType>
-        <EntityContainer Name="InsuranceQuotesModelStoreContainer">
+        <Association Name="FK__AutoQuote__Insur__25869641">
+          <End Role="Insurees" Type="Self.Insurees" Multiplicity="1" />
+          <End Role="AutoQuotes" Type="Self.AutoQuotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insurees">
+              <PropertyRef Name="InsureeId" />
+            </Principal>
+            <Dependent Role="AutoQuotes">
+              <PropertyRef Name="InsureeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InsuranceEntitiesModelStoreContainer">
           <EntitySet Name="AutoQuotes" EntityType="Self.AutoQuotes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Insurees" EntityType="Self.Insurees" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AutoQuote__Insur__25869641" Association="Self.FK__AutoQuote__Insur__25869641">
+            <End Role="Insurees" EntitySet="Insurees" />
+            <End Role="AutoQuotes" EntitySet="AutoQuotes" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="InsuranceQuotesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="InsuranceEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AutoQuote">
           <Key>
             <PropertyRef Name="AutoQuoteId" />
@@ -74,12 +89,13 @@
           <Property Name="SubTotalBeforeDuiCalc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="DuiRateUp25Percent" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SubTotalAfterDuiCalc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="SpeedingTickets" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SpeedingTicketsRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SubTotalBeforeCoverageCalc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="FullCoverageRateUp50Percent" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SubTotalAfterCoverageCalc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="MonthlyQuoteRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="YearlyQuoteRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Insuree" Relationship="Self.FK__AutoQuote__Insur__25869641" FromRole="AutoQuotes" ToRole="Insurees" />
         </EntityType>
         <EntityType Name="Insuree">
           <Key>
@@ -90,28 +106,44 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CarYear" Type="Int32" Nullable="false" />
-          <Property Name="CarMake" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VehicleYear" Type="Int32" Nullable="false" />
+          <Property Name="VehicleMake" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VehicleModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DUI" Type="Boolean" Nullable="false" />
           <Property Name="SpeedingTickets" Type="Int32" Nullable="false" />
           <Property Name="CoverageType" Type="Boolean" Nullable="false" />
-          <Property Name="AutoQuoteId" Type="Int32" Nullable="false" />
-          <Property Name="MonthlyQuoteRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="YearlyQuoteRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="MonthlyQuoteRate" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="YearlyQuoteRate" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="AutoQuotes" Relationship="Self.FK__AutoQuote__Insur__25869641" FromRole="Insurees" ToRole="AutoQuotes" />
         </EntityType>
-        <EntityContainer Name="InsuranceQuotesEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__AutoQuote__Insur__25869641">
+          <End Role="Insurees" Type="Self.Insuree" Multiplicity="1" />
+          <End Role="AutoQuotes" Type="Self.AutoQuote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insurees">
+              <PropertyRef Name="InsureeId" />
+            </Principal>
+            <Dependent Role="AutoQuotes">
+              <PropertyRef Name="InsureeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InsuranceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AutoQuotes" EntityType="Self.AutoQuote" />
           <EntitySet Name="Insurees" EntityType="Self.Insuree" />
+          <AssociationSet Name="FK__AutoQuote__Insur__25869641" Association="Self.FK__AutoQuote__Insur__25869641">
+            <End Role="Insurees" EntitySet="Insurees" />
+            <End Role="AutoQuotes" EntitySet="AutoQuotes" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="InsuranceQuotesModelStoreContainer" CdmEntityContainer="InsuranceQuotesEntities">
+        <EntityContainerMapping StorageEntityContainer="InsuranceEntitiesModelStoreContainer" CdmEntityContainer="InsuranceEntities">
           <EntitySetMapping Name="AutoQuotes">
-            <EntityTypeMapping TypeName="InsuranceQuotesModel.AutoQuote">
+            <EntityTypeMapping TypeName="InsuranceEntitiesModel.AutoQuote">
               <MappingFragment StoreEntitySet="AutoQuotes">
                 <ScalarProperty Name="AutoQuoteId" ColumnName="AutoQuoteId" />
                 <ScalarProperty Name="InsureeId" ColumnName="InsureeId" />
@@ -126,7 +158,7 @@
                 <ScalarProperty Name="SubTotalBeforeDuiCalc" ColumnName="SubTotalBeforeDuiCalc" />
                 <ScalarProperty Name="DuiRateUp25Percent" ColumnName="DuiRateUp25Percent" />
                 <ScalarProperty Name="SubTotalAfterDuiCalc" ColumnName="SubTotalAfterDuiCalc" />
-                <ScalarProperty Name="SpeedingTickets" ColumnName="SpeedingTickets" />
+                <ScalarProperty Name="SpeedingTicketsRate" ColumnName="SpeedingTicketsRate" />
                 <ScalarProperty Name="SubTotalBeforeCoverageCalc" ColumnName="SubTotalBeforeCoverageCalc" />
                 <ScalarProperty Name="FullCoverageRateUp50Percent" ColumnName="FullCoverageRateUp50Percent" />
                 <ScalarProperty Name="SubTotalAfterCoverageCalc" ColumnName="SubTotalAfterCoverageCalc" />
@@ -136,20 +168,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Insurees">
-            <EntityTypeMapping TypeName="InsuranceQuotesModel.Insuree">
+            <EntityTypeMapping TypeName="InsuranceEntitiesModel.Insuree">
               <MappingFragment StoreEntitySet="Insurees">
                 <ScalarProperty Name="InsureeId" ColumnName="InsureeId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="CarYear" ColumnName="CarYear" />
-                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
-                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="VehicleYear" ColumnName="VehicleYear" />
+                <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+                <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
                 <ScalarProperty Name="DUI" ColumnName="DUI" />
                 <ScalarProperty Name="SpeedingTickets" ColumnName="SpeedingTickets" />
                 <ScalarProperty Name="CoverageType" ColumnName="CoverageType" />
-                <ScalarProperty Name="AutoQuoteId" ColumnName="AutoQuoteId" />
                 <ScalarProperty Name="MonthlyQuoteRate" ColumnName="MonthlyQuoteRate" />
                 <ScalarProperty Name="YearlyQuoteRate" ColumnName="YearlyQuoteRate" />
               </MappingFragment>
