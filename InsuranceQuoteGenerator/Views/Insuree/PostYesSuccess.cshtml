@@ -1,4 +1,4 @@
-﻿@using InsuranceQuoteGenerator.Models;
+﻿@using InsuranceQuoteGenerator.Models
 @model InsuranceQuoteGenerator.Models.Insuree
 
 @{
@@ -13,15 +13,14 @@
     <title>Successful Submission</title>
 </head>
 <body>
-  
-  @using {var model = new Insuree()
+
 
     <div>
       <h2>Submission Successful :</h2><br/><br/>
 
       <ul>Insuree:
       
-      <li>Name:@insuree.FirstName </li>
+      <li>Name:@model.FirstName </li>
       
       
       

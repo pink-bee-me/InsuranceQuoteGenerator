@@ -25,7 +25,7 @@ namespace InsuranceQuoteGenerator.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AutoQuote> AutoQuotes { get; set; }
-        public virtual DbSet<Insuree> Insurees { get; set; }
+        public virtual DbSet<AutoQuotes> AutoQuotes1 { get; set; }
+        public virtual DbSet<Insurees> Insurees1 { get; set; }
     }
 }

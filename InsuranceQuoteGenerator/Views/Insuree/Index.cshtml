@@ -1,6 +1,6 @@
 ﻿@using System.Collections.Generic
-@model IEnumerable<InsuranceQuoteGenerator.Models.InsuranceEntities>
-@using { var model = new List<Insuree>();
+@model IEnumerable<InsuranceQuoteGenerator.Models.InsuranceEntites>
+@using { var insurees = new List<Insuree>();
            
 
 @{
@@ -18,20 +18,11 @@
   <table class="table">
 
     <tr>
-      <th>
+      <thM
         @Html.DisplayNameFor(model => model.InsureeId)
       </th>
       <th>
         @Html.DisplayNameFor(model => model.FirstName)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.LastName)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.EmailAddress)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.DateOfBirth)
       </th>
       <th>
         @Html.DisplayNameFor(model => model.VehicleYear)

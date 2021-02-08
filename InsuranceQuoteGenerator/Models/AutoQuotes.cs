@@ -12,7 +12,7 @@ namespace InsuranceQuoteGenerator.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AutoQuote
+    public partial class AutoQuotes
     {
         public int AutoQuoteId { get; set; }
         public int InsureeId { get; set; }
@@ -34,6 +34,6 @@ namespace InsuranceQuoteGenerator.Models
         public decimal MonthlyQuoteRate { get; set; }
         public decimal YearlyQuoteRate { get; set; }
     
-        public virtual Insuree Insuree { get; set; }
+        public virtual Insurees Insurees { get; set; }
     }
 }

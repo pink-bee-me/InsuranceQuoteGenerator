@@ -19,6 +19,7 @@ namespace InsuranceQuoteGenerator.Controllers
 
         public ActionResult Index()
         {
+
             return View(db.Insurees.ToList());
         }
 
@@ -53,7 +54,7 @@ namespace InsuranceQuoteGenerator.Controllers
         public ActionResult PostYesSuccess(Insuree insuree)
         {
 
-            return View(insuree);
+            return View(insuree.InsureeId, insuree.FirstName, insuree.LastName, insuree.DateOfBirth);
         }
 
 

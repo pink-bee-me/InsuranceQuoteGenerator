@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InsuranceEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InsuranceEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AutoQuotes">
           <Key>
             <PropertyRef Name="AutoQuoteId" />
@@ -67,12 +67,11 @@
             <End Role="AutoQuotes" EntitySet="AutoQuotes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InsuranceEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AutoQuote">
+        <EntityType Name="AutoQuotes">
           <Key>
             <PropertyRef Name="AutoQuoteId" />
           </Key>
@@ -95,9 +94,9 @@
           <Property Name="SubTotalAfterCoverageCalc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="MonthlyQuoteRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="YearlyQuoteRate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="Insuree" Relationship="Self.FK__AutoQuote__Insur__25869641" FromRole="AutoQuotes" ToRole="Insurees" />
+          <NavigationProperty Name="Insurees" Relationship="Self.FK__AutoQuote__Insur__25869641" FromRole="AutoQuotes" ToRole="Insurees" />
         </EntityType>
-        <EntityType Name="Insuree">
+        <EntityType Name="Insurees">
           <Key>
             <PropertyRef Name="InsureeId" />
           </Key>
@@ -117,8 +116,8 @@
           <NavigationProperty Name="AutoQuotes" Relationship="Self.FK__AutoQuote__Insur__25869641" FromRole="Insurees" ToRole="AutoQuotes" />
         </EntityType>
         <Association Name="FK__AutoQuote__Insur__25869641">
-          <End Role="Insurees" Type="Self.Insuree" Multiplicity="1" />
-          <End Role="AutoQuotes" Type="Self.AutoQuote" Multiplicity="*" />
+          <End Role="Insurees" Type="InsuranceEntitiesModel.Insurees" Multiplicity="1" />
+          <End Role="AutoQuotes" Type="InsuranceEntitiesModel.AutoQuotes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Insurees">
               <PropertyRef Name="InsureeId" />
@@ -129,11 +128,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="InsuranceEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AutoQuotes" EntityType="Self.AutoQuote" />
-          <EntitySet Name="Insurees" EntityType="Self.Insuree" />
+          <EntitySet Name="AutoQuotes1" EntityType="InsuranceEntitiesModel.AutoQuotes" />
+          <EntitySet Name="Insurees1" EntityType="InsuranceEntitiesModel.Insurees" />
           <AssociationSet Name="FK__AutoQuote__Insur__25869641" Association="Self.FK__AutoQuote__Insur__25869641">
-            <End Role="Insurees" EntitySet="Insurees" />
-            <End Role="AutoQuotes" EntitySet="AutoQuotes" />
+            <End Role="Insurees" EntitySet="Insurees1" />
+            <End Role="AutoQuotes" EntitySet="AutoQuotes1" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -142,8 +141,8 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="InsuranceEntitiesModelStoreContainer" CdmEntityContainer="InsuranceEntities">
-          <EntitySetMapping Name="AutoQuotes">
-            <EntityTypeMapping TypeName="InsuranceEntitiesModel.AutoQuote">
+          <EntitySetMapping Name="AutoQuotes1">
+            <EntityTypeMapping TypeName="InsuranceEntitiesModel.AutoQuotes">
               <MappingFragment StoreEntitySet="AutoQuotes">
                 <ScalarProperty Name="AutoQuoteId" ColumnName="AutoQuoteId" />
                 <ScalarProperty Name="InsureeId" ColumnName="InsureeId" />
@@ -167,8 +166,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Insurees">
-            <EntityTypeMapping TypeName="InsuranceEntitiesModel.Insuree">
+          <EntitySetMapping Name="Insurees1">
+            <EntityTypeMapping TypeName="InsuranceEntitiesModel.Insurees">
               <MappingFragment StoreEntitySet="Insurees">
                 <ScalarProperty Name="InsureeId" ColumnName="InsureeId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
