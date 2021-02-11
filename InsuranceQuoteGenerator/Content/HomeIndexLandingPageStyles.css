@@ -1,144 +1,120 @@
 ﻿/*!!!!!!! LANDING PAGE !!!!!!!*/
 /******* " ARE YOU PAYING TOO MUCH FOR YOUR INSURANCE ? "  ******/
 /*Home/Index styles*/
-
-
-#HomeIndexLandingPageBodyContainer {
-    position:absolute;
-    padding: 0px;
+body {
+    position: relative;
+    top: -25vh;
+    left: 0vw;
     width: 100vw;
     height: 100vh;
-    color: white;
-    font-family: "Josefin Sans", sans-serif;
+    margin: 0;
+    background: no-repeat;
+    background-image: url("Images/FrontPage.jpg");
+    background-size: cover;
+}
+
+
+#LandingPageHomeIndex {
+    position: relative;
+    top: 0;
+    left: 0vw;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255,255,255,.035);
+    /* background: url("Images/LandingPageCut.png");
+    background-size: cover;*/
 }
 
 
 
-#HomeIndexBackground img {
+#ColorOverlay {
     position: relative;
     top: 0;
     left: 0;
     margin-top: 0;
     width: 100vw;
     height: 100vh;
-    background: no-repeat;
-    z-index: -1;
-    background-color:darkorchid;
+    background: rgba(255,255,255, 0.45);
+    z-index:1;
+
 }
 
-#CompanyName {
-    font-weight: bold;
-    font-size: 200em;
-}
-
-#ImageTextOverlay {
-    /*top: 10vh;
-    left: 3vw;*/
+#TextOverlay {
     position: relative;
-    top:-125vh;
-    left: 0vw;
     background-size: cover;
-    /*background: rgba(128,128,128,0.45)*/
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
+    background-color: rgba(255,255,255,0.45);
+    width: 100%;
+    height: 100%;
+   
 }
 
-.jumbotron {
+#AreYou {
     position: relative;
-    top:25vh;
-    left:0vw;
-    color: white;
-    background-size: cover;
-    background-color: rgba(128,128,128,0.45);
-    width: 100vw;
-    height: 100vh;
-    padding-top: 1vh;
-    padding-left: 10vw;
-    padding-bottom: 5vh;
-}
-
-
-
-    #AreYou {
-        position: relative;
-        top: 15vh;
-        left: -5vw;
-        padding-top: 1.5rem;
-        font-family: "Special Elite", cursive;
-        font-weight: 300;
-        font-size:4.5em;
-        /* font-style:italic;*/
-        color: white;
-        padding-bottom:0px;
-        margin-bottom:0px;
-    }
-
-    #Sadly {
-      color:white;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: bold;
-        font-size: 2.75em;
-        font-style: italic;
-        position:relative;
-        top:19vh;
-        left:-4vw;
-        padding-top: 0px;
-        margin-bottom:0px;
-    }
-
-#RightPlace {
-    position: relative;
-    top: 24vh;
-    left: 0vw;
-    font-size: 3.5em;
-    font-style: italic;
-    font-weight: 600;
-    color:white;
-    margin-bottom:20px;
-}
-#Favor {
-    position:relative;
-    top:5vh;
-    margin-top:10px;
-    padding-top:10px;
-    font-size:2.5em;
-    font-weight:400;
-}
-
-.jumbotron p span {
-    position:relative;
-    top:4vh;
-    font-size: 1.5em;
-    font-weight: 400;
-    margin-bottom: 0;
-    color:white;
-}
-
-#NoHassles  {
-    position:relative;
-    top:4vh;
-    left:0vw;
-    margin-bottom: 0;
+    top: 25vh;
+    left: 5vw;
+    padding-top: 1.5rem;
     font-family: "Josefin Sans", sans-serif;
-    font-size: 1.75em;
-    font-weight: 300;
-    color:white;
+    font-weight: 200;
+    font-size: 4.5em;
+    font-style: italic;
+    color: white;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#Sadly {
+    position: relative;
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: 2.0em;
+    /*     font-style: italic;*/
+    position: relative;
+    top: 25vh;
+    left: 30vw;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+
+#Favor {
+    position: relative;
+    top: 35vh;
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: 1.5em;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+#HowMuch {
+    position: relative;
+    top: 35vh;
+    left: 0vw;
+    margin-bottom: 0;
+    font-family: "Nunito Sans",sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    text-align: center;
 }
 
 
 #FreeQuoteButton a {
     position: relative;
-    bottom: -7vh;
-    right:0vw;
-    font-family: "Josefin Sans";
-    font-size: 2em;
+    top: 40vh;
+    left: 40vw;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.5em;
     font-weight: bold;
-    padding-top: 15px;
-    width:27vw;
+    padding: 10px;
+    width: 27vw;
     height: 7vh;
     text-align: center;
-    align-content: center;
     background-color: rgb(144,123,248);
     color: white;
 }

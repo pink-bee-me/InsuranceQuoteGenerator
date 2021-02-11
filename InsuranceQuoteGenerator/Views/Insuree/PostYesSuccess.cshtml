@@ -18,21 +18,18 @@
     <div>
       <h2>Submission Successful :</h2><br/><br/>
 
-      <ul>Insuree:
-      
-      <li>Name:@model.FirstName </li>
-      
-      
-      
-      
-      
-      </ul>
-      
-
-
-      </div>
+     <ul>New Insuree:
+     @{ 
+          var data = ViewBag.Message;
+      }
+      <li>Insuree Id: @data.InsureeId</li>
+      <li>First Name: @data.FirstName </li>
+      <li>LastName: @data.LastName</li>
+      <li>Email Address: @data.EmailAddress</li>
+    </ul>
+   </div>
   <div>
-    @Html.ActionLink("Calculate Quote", "Index","AutoQuote",null, new { @class = "btn btn-success", Insuree.Id })
+    @Html.ActionLink("Calculate Quote", "Index","AutoQuote",null, new { @class = "btn btn-success", data.InsureeId })
     </div>
   }
 </body>

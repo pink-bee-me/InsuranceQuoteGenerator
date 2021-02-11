@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace InsuranceQuoteGenerator
 {
@@ -9,7 +8,10 @@ namespace InsuranceQuoteGenerator
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Content/themes/base/jquery-ui.min.css",
+                        "~/Scripts/jquery-3.1.1.min.js",
+                        "~/Scripts/jquery-ui-1.12.1.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -24,7 +26,11 @@ namespace InsuranceQuoteGenerator
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/HomeIndexLandingPageStyles.css",
+                      "~/Content/HomeAboutPageStyles.css",
+                      "~/Content/InsureeFormStyles.css",
+                      "~/Content/site.css",
+                       "~/Content/Images"));
         }
     }
 }

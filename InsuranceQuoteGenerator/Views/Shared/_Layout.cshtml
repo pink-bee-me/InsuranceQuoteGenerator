@@ -1,23 +1,16 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
+﻿<head>
+  <title></title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto Insurance Connection</title>
-  @Styles.Render("~/Content/css")
-  @Scripts.Render("~/bundles/modernizr")
-  <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-  <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-  <link runat="server" rel="icon" href="~/Views/Shared/FavIcon/PinkBeeMePolyPhonic.ico" type="image/ico" />@*for chrome and firefox*@
-  <link runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> @*for internet explorer*@
-  </head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet">
+
+</head>
 <body>
     
         @RenderBody()
    
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)*@
 </body>
-</html>

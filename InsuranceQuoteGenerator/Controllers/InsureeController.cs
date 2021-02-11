@@ -11,7 +11,7 @@ namespace InsuranceQuoteGenerator.Controllers
     {
         //gain access to the Insurance Quote Entities(Insurees , AutoQuotes)
 
-        private InsuranceEntities db = new InsuranceEntities();
+        private readonly InsuranceModelEntities db = new InsuranceModelEntities();
 
         // ActionResult Index() returns the InsureeController Index View (/Views/Insuree/Index.cshtml)//
         // This Index View Displays a list of all the current Insurees stored in the Insurance Database//
@@ -19,7 +19,6 @@ namespace InsuranceQuoteGenerator.Controllers
 
         public ActionResult Index()
         {
-
             return View(db.Insurees.ToList());
         }
 
@@ -40,21 +39,24 @@ namespace InsuranceQuoteGenerator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InsureeId,FirstName,LastName,EmailAddress,DateOfBirth,VehicleYear,VehicleMake,VehicleModel,DUI,SpeedingTickets,CoverageType,AutoQuoteId,MonthlyQuoteRate,YearlyQuoteRate")] Insuree insuree)
+        public ActionResult Create([Bind(Include = "InsureeId,FirstName,LastName,EmailAddress,DateOfBirth,VehicleYear,VehicleMake,VehicleModel,DUI,SpeedingTickets,CoverageType,MonthlyQuoteRate,YearlyQuoteRate")] Insuree insuree)
         {
+            insuree = new Insuree();
             if (ModelState.IsValid)
             {
                 db.Insurees.Add(insuree);
                 db.SaveChanges();
+                ViewBag.Message = insuree;
             }
-            return RedirectToAction("PostYesSuccess");
+
+            return View("PostYesSuccess");
         }
 
 
         public ActionResult PostYesSuccess(Insuree insuree)
         {
 
-            return View(insuree.InsureeId, insuree.FirstName, insuree.LastName, insuree.DateOfBirth);
+            return View(insuree);
         }
 
 
@@ -62,6 +64,22 @@ namespace InsuranceQuoteGenerator.Controllers
         {
             return View();
         }
+
+        public AutoQuote CalculateQuote()
+        {
+
+
+
+
+
+
+
+
+
+
+            return AutoQuote autoQuote
+        }
+
 
 
 

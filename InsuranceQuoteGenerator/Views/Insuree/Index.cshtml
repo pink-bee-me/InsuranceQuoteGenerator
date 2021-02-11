@@ -1,24 +1,22 @@
-﻿@using System.Collections.Generic
-@model IEnumerable<InsuranceQuoteGenerator.Models.InsuranceEntites>
-@using { var insurees = new List<Insuree>();
-           
-
-@{
-  ViewBag.Title = "Current List Of Insurees in Database";
+﻿@model IEnumerable<InsuranceQuoteGenerator.Models.Insuree>
+@{ 
+    ViewBag.Titile = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h5>URL: /Insuree/Index/</h5>
 <h2>Current List&lt;Insurees&gt; in Insurance.db</h2>
-
-
-
-  <p>
-    @Html.ActionLink("Create New", "Create")
-  </p>
-
+<p>
+  @Html.ActionLink("Create New", "Create")
+</p>
+@*@using{ public IEnumerable<Insuree> GetAllModels()
+         {
+           InsuranceModelEntities db = new InsranceModelEntities.db;
+           var models = new List<Insuree>();
+            return Models;
+         }*@
   <table class="table">
 
     <tr>
-      <thM
+      <th>
         @Html.DisplayNameFor(model => model.InsureeId)
       </th>
       <th>
@@ -43,10 +41,10 @@
         @Html.DisplayNameFor(model => model.CoverageType)
       </th>
     </tr>)
-    <tr>
-       
-      @foreach (Insurees item in Model)
-      
+
+    @foreach (var item in Model)
+    {
+      <tr>
         <td>
           @Html.DisplayFor(modelItem => item.InsureeId)
         </td>
@@ -63,13 +61,13 @@
           @Html.DisplayFor(modelItem => item.DateOfBirth)
         </td>
         <td>
-          @Html.DisplayFor(modelItem => item.CarYear)
+          @Html.DisplayFor(modelItem => item.VehicleYear)
         </td>
         <td>
-          @Html.DisplayFor(modelItem => item.CarMake)
+          @Html.DisplayFor(modelItem => item.VehicleMake)
         </td>
         <td>
-          @Html.DisplayFor(modelItem => item.CarModel)
+          @Html.DisplayFor(modelItem => item.VehicleModel)
         </td>
         <td>
           @Html.DisplayFor(modelItem => item.DUI)
@@ -79,9 +77,6 @@
         </td>
         <td>
           @Html.DisplayFor(modelItem => item.CoverageType)
-        </td>
-        <td>
-          @Html.DisplayFor(modelItem => item.AutoQuoteId)
         </td>
         <td>
           @Html.DisplayFor(modelItem => item.MonthlyQuoteRate)
@@ -94,8 +89,7 @@
           @Html.ActionLink("Details", "Details", new { id = item.InsureeId }) |
           @Html.ActionLink("Delete", "Delete", new { id = item.InsureeId })
         </td>
-    </tr>
-  }  
+      </tr>
+    }
   </table>
-  
-      }
+  }
